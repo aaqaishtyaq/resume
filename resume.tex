@@ -1,0 +1,121 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Aaqa Ishtyaq} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{+9196503 34509 \\ New Delhi, India} 
+
+
+\address{
+\href{https://www.aaqa.dev}{aaqa.dev} \\ \href{https://linkedin.com/in/aaqaishtyaq}{linkedin.com/aaqaishtyaq} \\ \href{https://github.com/aaqaishtyaq}{github.com/aaqaishtyaq} \\ \href{mailto:aaqaishtyaq@gmail.com}{aaqaishtyaq@gmail.com}}  %
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVE
+%----------------------------------------------------------------------------------------
+
+ \begin{rSection}{SUMMARY}
+
+{Polyglot Software Engineer with an interest in distributed systems, observability, developer tooling, infrastructure engineering (cloud-native infrastructure) and programming languages.}
+
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf Noida Institute of Engineering and Technology}  \hfill \hfill {2015 - 2019}\\
+Bachelor of Technology in Computer Science and Engineering
+
+
+\end{rSection}
+
+
+\begin{rSection}{EXPERIENCE}
+
+\textbf{HackerRank} \hfill Oct 2022 - \\
+ Senior Software Engineer \hfill \textit{Remote, India}
+ \begin{itemize}
+    \itemsep -3pt {}
+     \item Optimise for workspace startup time to support thousands of different docker images as runtime images.
+     \item Orchestrator isolation from the monolith. Event-driven service  with DynamoDB and RabbitMQ as message broker in Go.
+ \end{itemize}
+ 
+\textbf{HackerRank} \hfill Feb 2021 - Sep 2022\\
+Software Development Engineer II \hfill \textit{Bengaluru, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item Implemented multiple application features, leveraging Linux features such as cgroups, rlimits, namespaces, etc.
+    \item Workspace Pause and Resume. It saves more than 80\% of workspace costs for long-running submissions.
+     \item HTTP/Websockets proxy for incoming traffic to workspaces, with dynamically configured routes, persisted using Redis.
+     \item Re-architected Project's git-server. Solve for efficient inodes utilization, Backup, and Disaster Recovery.
+     \item HackerRank Projects discovery in Free-Trial. 580\% increase in Self Serve conversions for the premium offering.
+    \item Tagging service to tag incoming support issues with the candidate attempt and submissions, using telemetry and logs.
+    \item Led team to deliver Web3/Solidity stack. Added capabilities to assess candidates for: Jenkins, Cassandra, ELK, AWS.
+ \end{itemize}
+
+\textbf{HackerRank} \hfill Jun 2019 - Feb 2021\\
+Software Development Engineer \hfill \textit{Bengaluru, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item Onboarded Data Science and Machine Learning assessment platform with Jupyter IDE.
+     \item Optimise workspace orchestrator for candidate wait time, Intelligent warmups.
+    \item Worked on efficient infra scaling during high-scale events. Involved in writing scripts to automate the scale-up/down of multiple Kubernetes clusters.
+    \item Automation to run workspace orchestrator on multi-cloud. (GCP and AWS)
+ \end{itemize}
+
+ \textbf{HackerRank} \hfill Jan 2019 - Jun 2019\\
+Software Engineering Intern \hfill \textit{Bengaluru, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item Primarily worked on HackerRank Project's Backend and Workspace orchestrator.
+     \item Onboarded Theia IDE with custom extensions. REPL for Python, Nodejs, and Ruby in HackerRank Interviews.
+ \end{itemize}
+
+
+ \textbf{Shree Tech Solution} \hfill May 2018 - Nov 2018\\
+Back End Developer Intern \hfill \textit{New Delhi, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item My role was to create Python Django-based web applications and Web crawlers using Scrapy.
+ \end{itemize}
+ 
+ \textbf{Mahindra Special Services Group} \hfill Jun 2017 - Aug 2017\\
+IS Analyst Intern \hfill \textit{New Delhi, India}
+ \begin{itemize}
+    \itemsep -3pt {} 
+     \item Created a vulnerable E-commerce web application, added Second Order SQL Injection as Proof of Concept
+ \end{itemize}
+ 
+\end{rSection} 
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{SKILLS}
+% \vspace{-1.25em}
+% \item \textbf{Back End:} {Go, Ruby, Python, Bash, Typescript/Javascript, HTML, CSS, Nix, Rust, MySQL, NoSQL, RabbitMQ, Redis}
+% \item \textbf{Infrastructure:} {GCP, AWS, GNU/Linux, Kubernetes, Runc, Docker, Jenkins, Terraform, Nix, Firecracker }
+% \item \textbf{Tools and Utilities:} {Git, Vim, Tmux }
+
+
+\begin{rSection}{SKILLS}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Back End & Go, Ruby, Python, Bash, Typescript, HTML, CSS, Nix, Rust, MySQL, NoSQL, RabbitMQ, Redis\\
+Infrastructure & GCP, AWS, GNU/Linux, Kubernetes, Runc, Docker, Jenkins, Terraform, Nix, Firecracker\\
+Tools and Utilities & Git, Vim, Tmux\\
+\end{tabular}\\
+\end{rSection}
+
+
+
+% \end{rSection} 
+
+\end{document}

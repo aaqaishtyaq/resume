@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Latin Modern Roman";
+  src: url("fonts/lmroman10-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Latin Modern Roman";
+  src: url("fonts/lmroman10-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Latin Modern Roman";
+  src: url("fonts/lmroman10-italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+body {
+  margin: 1.5rem auto;
+  padding: 0 1.25rem 2rem;
+  max-width: 56rem;
+  font-family: "Latin Modern Roman", Georgia, serif;
+  line-height: 1.45;
+}
+
+body > p.noindent:first-of-type {
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
+.centerline {
+  text-align: center;
+  margin: 0.15rem 0;
+}
+
+dl.list1 {
+  margin: 0;
+}
+
+dl.list1 > dt {
+  display: none;
+}
+
+dl.list1 > dd {
+  margin: 0;
+}
+
+p.noindent {
+  margin: 0.9rem 0 0.3rem;
+}
+
+ul.itemize1 {
+  margin: 0.35rem 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+ul li.itemize,
+ol li.enumerate {
+  margin-left: 0;
+}
+
+div.tabular,
+div.center div.tabular {
+  text-align: left;
+  margin: 0.4rem 0 0;
+}
+
+table.tabular {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+table.tabular td {
+  padding-bottom: 0.35rem;
+}
+
+table.tabular td:first-child {
+  width: 12rem;
+  white-space: nowrap;
+}
