@@ -1,0 +1,47 @@
+name: release-pdf
+
+on:
+  push:
+    branches:
+      - trunk
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build resume
+        run: nix build '.#resume'
+
+      - name: Publish PDF release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="resume-pdf"
+          asset="result/aaqa-ishtyaq-resume.pdf"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release edit "$tag" \
+              --title "Aaqa Ishtyaq Resume" \
+              --notes "Latest PDF resume build from trunk." \
+              --latest \
+              --target "${GITHUB_SHA}"
+            gh release upload "$tag" "$asset" --clobber
+          else
+            gh release create "$tag" "$asset" \
+              --title "Aaqa Ishtyaq Resume" \
+              --notes "Latest PDF resume build from trunk." \
+              --latest \
+              --target "${GITHUB_SHA}"
+          fi

@@ -32,16 +32,16 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build resume
-        run: nix build .#resume
+        run: nix build '.#resume'
 
       - name: Prepare site
         run: |
           mkdir -p _site
           cp -RL result/fonts _site/fonts
-          cp -L result/resume.css _site/resume.css
-          cp -L result/resume.pdf _site/resume.pdf
-          cp -L result/resume.html _site/resume.html
-          cp -L result/resume.html _site/index.html
+          cp -L result/aaqa-ishtyaq-resume.css _site/aaqa-ishtyaq-resume.css
+          cp -L result/aaqa-ishtyaq-resume.pdf _site/aaqa-ishtyaq-resume.pdf
+          cp -L result/aaqa-ishtyaq-resume.html _site/aaqa-ishtyaq-resume.html
+          cp -L result/aaqa-ishtyaq-resume.html _site/index.html
           touch _site/.nojekyll
 
       - name: Upload Pages artifact

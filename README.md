@@ -19,9 +19,9 @@ nix build '.#resume'
 The generated files will be available at:
 
 ```sh
-./result/resume.pdf
-./result/resume.html
-./result/resume.css
+./result/aaqa-ishtyaq-resume.pdf
+./result/aaqa-ishtyaq-resume.html
+./result/aaqa-ishtyaq-resume.css
 ```
 
 `result` is a symlink to the Nix store output.
@@ -62,7 +62,7 @@ On pushes to `trunk`, the workflow:
 
 - builds the PDF and HTML with `nix build '.#resume'`
 - publishes the HTML as `index.html`
-- includes `resume.pdf` as a downloadable asset
+- includes `aaqa-ishtyaq-resume.pdf` as a downloadable asset
 
 To enable publishing:
 
@@ -72,3 +72,15 @@ To enable publishing:
 
 After that, each push to `trunk` will deploy the latest HTML resume to GitHub
 Pages.
+
+## GitHub Release
+
+The repository also includes
+[`/.github/workflows/release-pdf.yml`](.github/workflows/release-pdf.yml).
+
+On pushes to `trunk`, it builds the resume and updates a release tagged
+`resume-pdf` with a single asset:
+
+```sh
+aaqa-ishtyaq-resume.pdf
+```

@@ -19,6 +19,7 @@
       packages = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
+          artifactBase = "aaqa-ishtyaq-resume";
           tex = pkgs.texlive.combine {
             inherit (pkgs.texlive)
               latexmk
@@ -30,7 +31,13 @@
               parskip;
           };
           mainFile = "resume.tex";
-          pdfName = builtins.replaceStrings [ ".tex" ] [ ".pdf" ] mainFile;
+          sourceBase = builtins.replaceStrings [ ".tex" ] [ "" ] mainFile;
+          sourcePdfName = "${sourceBase}.pdf";
+          sourceHtmlName = "${sourceBase}.html";
+          sourceCssName = "${sourceBase}.css";
+          pdfName = "${artifactBase}.pdf";
+          htmlName = "${artifactBase}.html";
+          cssName = "${artifactBase}.css";
         in
         rec {
           resume = pkgs.stdenvNoCC.mkDerivation {
@@ -67,7 +74,9 @@
               cp "$lm_dir/lmroman10-bold.otf" build/html/fonts/
               cp "$lm_dir/lmroman10-italic.otf" build/html/fonts/
 
-              cat resume-html-overrides.css >> "build/html/${builtins.replaceStrings [ ".tex" ] [ ".css" ] mainFile}"
+              cat resume-html-overrides.css >> "build/html/${sourceCssName}"
+              sed -i "s|href='${sourceCssName}'|href='${cssName}'|" "build/html/${sourceHtmlName}"
+              sed -i "s|<title></title>|<title>Aaqa Ishtyaq Resume</title>|" "build/html/${sourceHtmlName}"
 
               runHook postBuild
             '';
@@ -76,8 +85,10 @@
               runHook preInstall
 
               mkdir -p "$out"
-              cp "build/pdf/${pdfName}" "$out/${pdfName}"
-              cp -R build/html/. "$out/"
+              cp "build/pdf/${sourcePdfName}" "$out/${pdfName}"
+              cp "build/html/${sourceHtmlName}" "$out/${htmlName}"
+              cp "build/html/${sourceCssName}" "$out/${cssName}"
+              cp -R build/html/fonts "$out/fonts"
 
               runHook postInstall
             '';
