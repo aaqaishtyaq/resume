@@ -38,6 +38,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -RL result/fonts _site/fonts
+          cp -L result/aaqa-ishtyaq-resume.build-info.json _site/aaqa-ishtyaq-resume.build-info.json
           cp -L result/aaqa-ishtyaq-resume.css _site/aaqa-ishtyaq-resume.css
           cp -L result/aaqa-ishtyaq-resume.pdf _site/aaqa-ishtyaq-resume.pdf
           cp -L result/aaqa-ishtyaq-resume.html _site/aaqa-ishtyaq-resume.html

@@ -22,9 +22,12 @@ The generated files will be available at:
 ./result/aaqa-ishtyaq-resume.pdf
 ./result/aaqa-ishtyaq-resume.html
 ./result/aaqa-ishtyaq-resume.css
+./result/aaqa-ishtyaq-resume.build-info.json
 ```
 
 `result` is a symlink to the Nix store output.
+The build info JSON includes deterministic metadata for the artifact bundle,
+including the flake revision and `lastModifiedDate` when available.
 
 ## Local editing shell
 
@@ -63,6 +66,7 @@ On pushes to `trunk`, the workflow:
 - builds the PDF and HTML with `nix build '.#resume'`
 - publishes the HTML as `index.html`
 - includes `aaqa-ishtyaq-resume.pdf` as a downloadable asset
+- exposes `aaqa-ishtyaq-resume.build-info.json` with the published site files
 
 To enable publishing:
 
@@ -79,8 +83,9 @@ The repository also includes
 [`/.github/workflows/release-pdf.yml`](.github/workflows/release-pdf.yml).
 
 On pushes to `trunk`, it builds the resume and updates a release tagged
-`resume-pdf` with a single asset:
+`resume-pdf` with these assets:
 
 ```sh
 aaqa-ishtyaq-resume.pdf
+aaqa-ishtyaq-resume.build-info.json
 ```

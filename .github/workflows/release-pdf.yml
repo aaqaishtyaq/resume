@@ -29,7 +29,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           tag="resume-pdf"
-          asset="result/aaqa-ishtyaq-resume.pdf"
+          pdf_asset="result/aaqa-ishtyaq-resume.pdf"
+          build_info_asset="result/aaqa-ishtyaq-resume.build-info.json"
 
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release edit "$tag" \
@@ -37,9 +38,9 @@ jobs:
               --notes "Latest PDF resume build from trunk." \
               --latest \
               --target "${GITHUB_SHA}"
-            gh release upload "$tag" "$asset" --clobber
+            gh release upload "$tag" "$pdf_asset" "$build_info_asset" --clobber
           else
-            gh release create "$tag" "$asset" \
+            gh release create "$tag" "$pdf_asset" "$build_info_asset" \
               --title "Aaqa Ishtyaq Resume" \
               --notes "Latest PDF resume build from trunk." \
               --latest \

@@ -20,6 +20,7 @@
         let
           pkgs = import nixpkgs { inherit system; };
           artifactBase = "aaqa-ishtyaq-resume";
+          version = "1.0.0";
           tex = pkgs.texlive.combine {
             inherit (pkgs.texlive)
               latexmk
@@ -38,11 +39,26 @@
           pdfName = "${artifactBase}.pdf";
           htmlName = "${artifactBase}.html";
           cssName = "${artifactBase}.css";
+          buildInfoName = "${artifactBase}.build-info.json";
+          buildInfo = pkgs.writeText buildInfoName (builtins.toJSON {
+            artifact = artifactBase;
+            inherit version system;
+            source = mainFile;
+            revision = self.rev or self.dirtyRev or self.dirtyRevision or null;
+            shortRevision = self.shortRev or self.dirtyShortRev or null;
+            lastModifiedDate = self.lastModifiedDate or null;
+            outputs = {
+              pdf = pdfName;
+              html = htmlName;
+              css = cssName;
+              fonts = "fonts";
+            };
+          });
         in
         rec {
           resume = pkgs.stdenvNoCC.mkDerivation {
             pname = "resume";
-            version = "1.0.0";
+            inherit version;
             src = ./.;
 
             nativeBuildInputs = [
@@ -89,6 +105,7 @@
               cp "build/html/${sourceHtmlName}" "$out/${htmlName}"
               cp "build/html/${sourceCssName}" "$out/${cssName}"
               cp -R build/html/fonts "$out/fonts"
+              cp ${buildInfo} "$out/${buildInfoName}"
 
               runHook postInstall
             '';
