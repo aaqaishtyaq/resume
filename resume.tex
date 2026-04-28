@@ -42,8 +42,11 @@ Bachelor of Technology in Computer Science and Engineering
  Senior Software Engineer \hfill \textit{Remote, India}
  \begin{itemize}
     \itemsep -3pt {}
-     \item Optimise for workspace startup time to support thousands of different docker images as runtime images.
-     \item Orchestrator isolation from the monolith. Event-driven service  with DynamoDB and RabbitMQ as message broker in Go.
+     \item Joined Platform Reliability initiative. Rearchitecting HackerRank's Remote Code Execution service for the scale of up to 200K RPS.
+     \item Conducted E2E load tests to identify bottlenecks in the system with a plan to support high scale.
+     \item Reduced workspace setup time from 14 secs for the 95th percentile of traffic to 3.5 secs.
+     \item Led observability initiative across the org to set up distributed tracing. Created language-specific SDKs along with integrations.
+     \item Orchestrator isolation from the monolith. Event-driven service with DynamoDB and RabbitMQ as message broker in Go.
  \end{itemize}
  
 \textbf{HackerRank} \hfill Feb 2021 - Sep 2022\\
@@ -92,7 +95,20 @@ IS Analyst Intern \hfill \textit{New Delhi, India}
      \item Created a vulnerable E-commerce web application, added Second Order SQL Injection as Proof of Concept
  \end{itemize}
  
-\end{rSection} 
+\end{rSection}
+
+\begin{rSection}{SELECTED PROJECTS}
+
+\textbf{Code Execution Platform / CodeRunner} \hfill \textit{HackerRank}
+\begin{itemize}
+   \itemsep -3pt {}
+    \item \textbf{Scale \& cost:} Led transformation from $\sim$40k to $\sim$200k concurrent candidates ($\sim$2,000 RPS); achieved $\sim$60\% infrastructure cost reduction (\$275k $\rightarrow$ \$100k/yr); concluded campus season 2024 incident-free.
+    \item \textbf{Architecture:} Consolidated 60+ language deployments into a unified compile/execute architecture using runc containers per language within Kubernetes.
+    \item \textbf{Performance:} Python3 $\sim$73\% faster (13s$\rightarrow$3.5s), Golang $\sim$75\% faster (8s$\rightarrow$2s), C\# $\sim$67\% faster (6s$\rightarrow$2s); documented optimization playbook for systematic extension to other runtimes.
+    \item \textbf{Container pipeline:} $\sim$97\% image size reduction (1.51 GB$\rightarrow$23--60 MB); p99 pod-ready improved $\sim$212s$\rightarrow$20s; automated onboarding pipeline with sanity testing; migrated GCR$\rightarrow$Artifact Registry with PR-based image promotion.
+\end{itemize}
+
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
