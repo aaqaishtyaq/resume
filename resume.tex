@@ -1,11 +1,11 @@
 \documentclass{resume} % Use the custom resume.cls style
 
 \usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \name{Aaqa Ishtyaq} % Your name
 % You can merge both of these into a single line, if you do not have a website.
-\address{+9196503 34509 \\ New Delhi, India} 
+\address{+9196503 34509 \\ New Delhi, India}
 
 
 \address{
@@ -19,7 +19,7 @@
 
  \begin{rSection}{SUMMARY}
 
-{Polyglot Software Engineer with an interest in distributed systems, observability, developer tooling, infrastructure engineering (cloud-native infrastructure) and programming languages.}
+{Software Engineer with 7+ years specializing in platform infrastructure, distributed systems, and Kubernetes. Delivering outcomes across scale, reliability, and cost efficiency. Track record in container runtimes (runc, Firecracker), high-throughput low-latency systems, and internal developer platforms.}
 
 
 \end{rSection}
@@ -38,7 +38,20 @@ Bachelor of Technology in Computer Science and Engineering
 
 \begin{rSection}{EXPERIENCE}
 
-\textbf{HackerRank} \hfill Oct 2022 - \\
+\textbf{Deel} \hfill Jul 2024 - Present \\
+Backend Engineer, Infra \hfill \textit{Remote, India}
+ \begin{itemize}
+    \itemsep -3pt {}
+     \item Building Giger, a sandbox platform running 800+ active concurrent Deel replicas across multiple clusters, serving 2000+ engineers, product teams, and GTM teams with isolated, production-like environments on demand.
+     \item Led multiple platform initiatives across 100+ engineering teams; partnered with Directors and Heads of Engineering to align priorities and unblock cross-team dependencies.
+     \item Fine-tuned Karpenter, VPA, and KEDA-based autoscaling policies across 100+ services for volatile, bursty sandbox workloads - optimizing pod density, bin-packing, and right-sizing.
+     \item Identified cgroups v2 bug causing CPU throttling across 70+ services; eliminated throttling across the platform.
+     \item Built DBA pipeline to clone anonymized production PostgreSQL databases (1TB+) into sandboxes - RDS backup restore with Kubernetes volume snapshots on EBS; sandbox Postgres pods start in seconds, replicated across multiple Giger clusters.
+     \item Rewrote Giger platform from Express JS to NestJS TypeScript with Temporal for workflow orchestration; replaced hardcoded configurations with self-serve dynamic sandbox provisioning; extended to multi-region with fine-grained permissions backed by SpiceDB.
+     \item Hardening sandbox environments to support real production data (PII): Just-in-Time secret access, Kubernetes RBAC, and RDS cloning via Copy-on-Write for efficient data isolation.
+ \end{itemize}
+
+\textbf{HackerRank} \hfill Oct 2022 - Jun 2024 \\
  Senior Software Engineer \hfill \textit{Remote, India}
  \begin{itemize}
     \itemsep -3pt {}
@@ -48,11 +61,11 @@ Bachelor of Technology in Computer Science and Engineering
      \item Led observability initiative across the org to set up distributed tracing. Created language-specific SDKs along with integrations.
      \item Orchestrator isolation from the monolith. Event-driven service with DynamoDB and RabbitMQ as message broker in Go.
  \end{itemize}
- 
+
 \textbf{HackerRank} \hfill Feb 2021 - Sep 2022\\
 Software Development Engineer II \hfill \textit{Bengaluru, India}
  \begin{itemize}
-    \itemsep -3pt {} 
+    \itemsep -3pt {}
      \item Implemented multiple application features, leveraging Linux features such as cgroups, rlimits, namespaces, etc.
     \item Workspace Pause and Resume. It saves more than 80\% of workspace costs for long-running submissions.
      \item HTTP/Websockets proxy for incoming traffic to workspaces, with dynamically configured routes, persisted using Redis.
@@ -65,7 +78,7 @@ Software Development Engineer II \hfill \textit{Bengaluru, India}
 \textbf{HackerRank} \hfill Jun 2019 - Feb 2021\\
 Software Development Engineer \hfill \textit{Bengaluru, India}
  \begin{itemize}
-    \itemsep -3pt {} 
+    \itemsep -3pt {}
      \item Onboarded Data Science and Machine Learning assessment platform with Jupyter IDE.
      \item Optimise workspace orchestrator for candidate wait time, Intelligent warmups.
     \item Worked on efficient infra scaling during high-scale events. Involved in writing scripts to automate the scale-up/down of multiple Kubernetes clusters.
@@ -75,7 +88,7 @@ Software Development Engineer \hfill \textit{Bengaluru, India}
  \textbf{HackerRank} \hfill Jan 2019 - Jun 2019\\
 Software Engineering Intern \hfill \textit{Bengaluru, India}
  \begin{itemize}
-    \itemsep -3pt {} 
+    \itemsep -3pt {}
      \item Primarily worked on HackerRank Project's Backend and Workspace orchestrator.
      \item Onboarded Theia IDE with custom extensions. REPL for Python, Nodejs, and Ruby in HackerRank Interviews.
  \end{itemize}
@@ -84,17 +97,17 @@ Software Engineering Intern \hfill \textit{Bengaluru, India}
  \textbf{Shree Tech Solution} \hfill May 2018 - Nov 2018\\
 Back End Developer Intern \hfill \textit{New Delhi, India}
  \begin{itemize}
-    \itemsep -3pt {} 
+    \itemsep -3pt {}
      \item My role was to create Python Django-based web applications and Web crawlers using Scrapy.
  \end{itemize}
- 
+
  \textbf{Mahindra Special Services Group} \hfill Jun 2017 - Aug 2017\\
 IS Analyst Intern \hfill \textit{New Delhi, India}
  \begin{itemize}
-    \itemsep -3pt {} 
+    \itemsep -3pt {}
      \item Created a vulnerable E-commerce web application, added Second Order SQL Injection as Proof of Concept
  \end{itemize}
- 
+
 \end{rSection}
 
 \begin{rSection}{SELECTED PROJECTS}
@@ -106,6 +119,16 @@ IS Analyst Intern \hfill \textit{New Delhi, India}
     \item \textbf{Architecture:} Consolidated 60+ language deployments into a unified compile/execute architecture using runc containers per language within Kubernetes.
     \item \textbf{Performance:} Python3 $\sim$73\% faster (13s$\rightarrow$3.5s), Golang $\sim$75\% faster (8s$\rightarrow$2s), C\# $\sim$67\% faster (6s$\rightarrow$2s); documented optimization playbook for systematic extension to other runtimes.
     \item \textbf{Container pipeline:} $\sim$97\% image size reduction (1.51 GB$\rightarrow$23--60 MB); p99 pod-ready improved $\sim$212s$\rightarrow$20s; automated onboarding pipeline with sanity testing; migrated GCR$\rightarrow$Artifact Registry with PR-based image promotion.
+\end{itemize}
+
+
+\textbf{Depot --- Distributed Firecracker microVM Orchestration} \hfill \textit{Go}
+\begin{itemize}
+   \itemsep -3pt {}
+    \item Built a distributed microVM orchestration platform running OCI workloads inside Firecracker VMs regional control plane, worker node daemons, WireGuard mesh networking, TLS/SNI ingress, and internal DNS resolution.
+    \item Self-healing machine lifecycle via a finite state machine on crash or failure, machines automatically reconcile back to desired state without operator intervention. Distributed state replicated across nodes via gossip-based SQLite, eliminating a central coordination dependency (etcd/Consul).
+    \item Sub-millisecond machine cold start via VM cloning; OCI image pull and rootfs preparation pipeline with CRIU-based snapshot support for fast activation paths.
+    \item WireGuard mesh for private inter-machine networking with per-machine DNS resolution and TLS/SNI ingress with SSH/WebSSH routing.
 \end{itemize}
 
 \end{rSection}
@@ -132,6 +155,6 @@ Tools and Utilities & Git, Vim, Tmux\\
 
 
 
-% \end{rSection} 
+% \end{rSection}
 
 \end{document}
