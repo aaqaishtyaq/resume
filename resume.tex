@@ -122,13 +122,14 @@ IS Analyst Intern \hfill \textit{New Delhi, India}
 \end{itemize}
 
 
-\textbf{Depot --- Distributed Firecracker microVM Orchestration} \hfill \textit{Go}
+\href{https://zei.sh}{\textbf{zei.sh}}: MicroVM Sandbox Platform \hfill \textit{Go}
 \begin{itemize}
    \itemsep -3pt {}
-    \item Built a distributed microVM orchestration platform running OCI workloads inside Firecracker VMs regional control plane, worker node daemons, WireGuard mesh networking, TLS/SNI ingress, and internal DNS resolution.
-    \item Self-healing machine lifecycle via a finite state machine on crash or failure, machines automatically reconcile back to desired state without operator intervention. Distributed state replicated across nodes via gossip-based SQLite, eliminating a central coordination dependency (etcd/Consul).
-    \item Sub-millisecond machine cold start via VM cloning; OCI image pull and rootfs preparation pipeline with CRIU-based snapshot support for fast activation paths.
-    \item WireGuard mesh for private inter-machine networking with per-machine DNS resolution and TLS/SNI ingress with SSH/WebSSH routing.
+    \item Founder/sole engineer of zei.sh (public beta), a cloud platform providing ephemeral Firecracker microVM sandboxes for AI agent execution, with instant clone/branch/snapshot of environments for reproducible agent runs.
+    \item Built the distributed control plane end to end: regional control plane, worker node daemons, WireGuard mesh networking, TLS/SNI ingress, and internal DNS resolution, deployed across a global edge network (3+ regions).
+    \item Self-healing machine lifecycle via a finite state machine on crash or failure; machines automatically reconcile to desired state without operator intervention. Distributed state replicated across nodes via gossip-based SQLite, eliminating a central coordination dependency (etcd/Consul).
+    \item 124ms VM boot and millisecond-scale environment cloning via CRIU-based snapshot support; OCI image pull and rootfs preparation pipeline for fast activation paths.
+    \item Shipped TypeScript SDK, HTTP API, SSH/WebSSH terminal access, and real-time metrics/logs dashboards for developers integrating sandboxes into agent and evaluation workloads.
 \end{itemize}
 
 \end{rSection}
